@@ -134,28 +134,30 @@ void MainWindow::on_calculateButton_clicked()
  * */
 void MainWindow::slotDeliteLine()
 {
-    /* Определяем объект, который вызвал сигнал
-     * */
-    QDynamicButton *lineToDel = (QDynamicButton*) sender();
-    /* Выполняем перебор всех элементов слоя, где располагаются динамические кнопки
-     * */
-    for(int i = 0; i < ui->verticalLayout->count(); i++){
-        /* Производим каст элемента слоя в объект динамической кнопки
+    if(ui->verticalLayout->count() > 1) {
+        /* Определяем объект, который вызвал сигнал
          * */
-        QDynamicButton *line = qobject_cast<QDynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
-        /* Если номер кнопки соответствует числу, которое установлено
-         * в lineEdit, то производим удаление данной кнопки
+        QDynamicButton *lineToDel = (QDynamicButton*) sender();
+        /* Выполняем перебор всех элементов слоя, где располагаются динамические кнопки
          * */
-        if(line->getID() == lineToDel->objectName().toInt()){
-            line->hide();
-            delete line;
+        for(int i = 0; i < ui->verticalLayout->count(); i++){
+            /* Производим каст элемента слоя в объект динамической кнопки
+             * */
+            QDynamicButton *line = qobject_cast<QDynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
+            /* Если номер кнопки соответствует числу, которое установлено
+             * в lineEdit, то производим удаление данной кнопки
+             * */
+            if(line->getID() == lineToDel->objectName().toInt()){
+                line->hide();
+                delete line;
+            }
         }
-    }
-    for(int i = 0; i < ui->verticalLayout->count(); i++){
-        /* Производим каст элемента слоя в объект динамической кнопки
-         * */
-        QDynamicButton *line = qobject_cast<QDynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
-        line->label->setText(QString::number(i+1)); // присваиваем номера строк
+        for(int i = 0; i < ui->verticalLayout->count(); i++){
+            /* Производим каст элемента слоя в объект динамической кнопки
+             * */
+            QDynamicButton *line = qobject_cast<QDynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
+            line->label->setText(QString::number(i+1)); // присваиваем номера строк
+        }
     }
 }
 
