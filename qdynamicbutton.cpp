@@ -37,23 +37,6 @@ QDynamicButton::QDynamicButton(QWidget *parent) :
     box->addWidget(comboR);
     box->addWidget(check);
     box->addWidget(button);
-
-
-//    QHBoxLayout * box;
-//    QLabel * label;
-//    QLineEdit * line;
-//    QSpinBox * spinN;
-//    QComboBox * comboT;
-//    QComboBox * comboE;
-//    QComboBox * comboD;
-//    QComboBox * comboP;
-//    QSpinBox * spinT;
-//    QComboBox * comboF;
-//    QComboBox * comboA;
-//    QComboBox * comboB;
-//    QComboBox * comboR;
-//    QCheckBox * check;
-//    QPushButton * button;
 }
 
 QDynamicButton::~QDynamicButton()
@@ -66,6 +49,11 @@ QDynamicButton::~QDynamicButton()
 int QDynamicButton::getID()
 {
     return lineID;
+}
+
+std::string QDynamicButton::getName()
+{
+    return lineName;
 }
 
 /* Инициализация статической переменной класса.

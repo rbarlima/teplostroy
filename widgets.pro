@@ -21,6 +21,7 @@ SOURCES += \
     qdynamicbutton.cpp
 
 HEADERS += \
+    designation.h \
     mainwindow.h \
     qdynamicbutton.h
 

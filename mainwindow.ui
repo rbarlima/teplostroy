@@ -290,14 +290,14 @@ D-колец</string>
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="helpButton">
         <property name="text">
          <string>Помощь</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="aboutButton">
         <property name="text">
          <string>О программе</string>
         </property>
@@ -324,7 +324,7 @@ D-колец</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="deleteButton">
+       <widget class="QPushButton" name="calculateButton">
         <property name="text">
          <string>Рассчитать</string>
         </property>

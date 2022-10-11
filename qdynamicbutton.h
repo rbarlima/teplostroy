@@ -17,12 +17,14 @@ public:
     ~QDynamicButton();
     static int ResID;   // Статическая переменная, счетчик номеров кнопок
     int getID();        // Функция для возврата локального номера кнопки
+    std::string getName();        // Функция для возврата локального номера кнопки
 
 
 public slots:
 
 public:
     int lineID = 0;   // Локальная переменная, номер кнопки
+    std::string lineName;   // Локальная переменная, номер кнопки
     QHBoxLayout * box;
     QLabel * label;
     QLineEdit * line;

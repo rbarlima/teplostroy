@@ -20,12 +20,10 @@ public:
 
 private slots:
     void on_addButton_clicked();    // СЛОТ-обработчик нажатия кнопки добавления
-    void on_deleteButton_clicked(); // СЛОТ-для получения калькуляции
-    void slotGetNumber();           // СЛОТ для удаления строки
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_clicked();
+    void on_calculateButton_clicked(); // СЛОТ-для получения калькуляции
+    void slotDeliteLine();           // СЛОТ для удаления строки
+    void on_helpButton_clicked();
+    void on_aboutButton_clicked();
 
 private:
     Ui::MainWindow *ui;
