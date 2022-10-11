@@ -125,9 +125,11 @@ void MainWindow::on_addButton_clicked()
 void MainWindow::on_calculateButton_clicked()
 {
     QMessageBox::information(this, "Рассчёт", "Открывается PDF-документ с готовой калькуляцией");
-    QDynamicButton *line = qobject_cast<QDynamicButton*>(ui->verticalLayout->itemAt(0)->widget());
-    QString name = makeName(line);
-    qDebug() << name;
+    for(int i = 0; i < ui->verticalLayout->count(); i++){
+        QDynamicButton *line = qobject_cast<QDynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
+        QString name = makeName(line);
+        qDebug() << name;
+    }
 }
 
 /* СЛОТ для удаления строки
