@@ -732,6 +732,7 @@ MyAdd CalcAdd(My& data) {
   result.DTriangle = Dtri;
   return result;
 }
+
 QString makeName(QDynamicButton *line){
     QString fire ("KM1-");
     if (line->comboF->currentText() == "НГ"){fire = "KM0-";}
@@ -745,6 +746,10 @@ QString makeName(QDynamicButton *line){
     }else if (line->comboE->currentText() == "Фильтр"){equipment = "ZF ";
     }else if (line->comboE->currentText() == "Другое"){equipment = "ZX ";
     }
+    QString diam ("D10");
+    diam = line->comboD->currentText();
+    diam.remove(1,1);
+
     QString insulation ("C");
     QString material (" C");
     if (line->spinT->value() > 350){insulation = " M"; material = " P";}
@@ -833,7 +838,7 @@ QString makeName(QDynamicButton *line){
     if (line->comboT->currentText() == "Стандарт"){type = "-S";
     }else if (line->comboT->currentText() == "Другое"){type = "-K";
     }
-    QString name = "Термочехол FORPRO " + fire + equipment + line->comboD->currentText() + "-C " + \
+    QString name = "Термочехол FORPRO " + fire + equipment + diam + "-C " + \
             insulation + width + material + type + "-00000-" + line->label->text();
     return name;
 }
