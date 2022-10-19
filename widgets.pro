@@ -2,7 +2,9 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+RC_ICONS = logo.ico
+
+CONFIG += c++17
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -23,7 +25,10 @@ SOURCES += \
 HEADERS += \
     designation.h \
     mainwindow.h \
-    qdynamicbutton.h
+    qdynamicbutton.h \
+    /usr/local/include/OpenXLSX/OpenXLSX.hpp
+#    /home/rbarlima/OpenXLSX/OpenXLSX/OpenXLSX.hpp
+#    /usr/local/lib/libOpenXLSX.a
 
 FORMS += \
     mainwindow.ui
@@ -32,3 +37,16 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../usr/local/lib/release/ -lOpenXLSX
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../usr/local/lib/debug/ -lOpenXLSX
+else:unix: LIBS += -L$$PWD/../../../usr/local/lib/ -lOpenXLSX
+
+INCLUDEPATH += $$PWD/../../../usr/local/include
+DEPENDPATH += $$PWD/../../../usr/local/include
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/release/libOpenXLSX.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/debug/libOpenXLSX.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/release/OpenXLSX.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/debug/OpenXLSX.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/libOpenXLSX.a

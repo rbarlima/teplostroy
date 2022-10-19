@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <cmath>
 
 /* My Includes */
 #include <qdynamicbutton.h>
