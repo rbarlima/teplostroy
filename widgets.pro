@@ -2,7 +2,10 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-RC_ICONS = logo.ico
+win32 {
+        RC_FILE += logo.rc
+        OTHER_FILES += logo.rc
+}
 
 CONFIG += c++17
 
