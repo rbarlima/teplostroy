@@ -891,13 +891,12 @@ QString makePrice(QDynamicButton *line) {
     MyAdd data_add = CalcAdd(data);
     double result;
 //    qDebug() << Work(data, data_add);
-    result =
-        std::ceil((PRICE_TG_430_S1 * (Out(data, data_add) + In(data, data_add)) +
-                   Warm(data, data_add) + Furniture(data, data_add) +
-                   Work(data, data_add)) *
-                  COEFFICIENT_DOP_RASHOD);
+    result = std::ceil((PRICE_TG_430_S1 * (Out(data, data_add) + In(data, data_add)) +
+                       Warm(data, data_add) + Furniture(data, data_add) +
+                       Work(data, data_add)) *
+                      COEFFICIENT_DOP_RASHOD * 1.5);
     data.PriceOne[data.CurrentPosition] = result;
     data.PriceAll[data.CurrentPosition] = result * pcount;
-    return QString::number(result*1.5);
+    return QString::number(result);
 }
 #endif // DESIGNATION_H
